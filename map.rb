@@ -4,42 +4,8 @@ class Map
     
     def initialize(length = 3)
         @length = length
-        
-        @cells = Array
-        length.times do |row|
-            length.times do |col|
-                @cells.push(DeadCell(row, col))
-            end
-        end
+        @cells = Array.new(length) { Array.new(length) { DeadCell.new }}
     end
-
-    
-    def set_living_cell(row, col)
-        @cells
-        # @cells.find
-        # @cells.update_cell_to_living(row, col)
-    end    
-
-   
-    def all
-        # 全てのセル情報を返す？
-    end
-    
-    def find_cell(row, col)
-        # 指定したセルを返す
-    end
-    
-    # セルを生きてるに変更する
-    def update_cell_to_living(row, col)
-        # もし既に生きてたら、falseを返そう
-        # 変更できたらtrueを返す
-    end
-
-    # セルを死んでるに変更する
-    def update_cell_to_death(row, col)
-    end
-    
-    
         
     # 近隣セルを生死ステータスを、各セルにセットする
     def set_neighboring_cells
@@ -49,7 +15,6 @@ class Map
             end
         end
     end
-
     
     def set_status_of_cells_around(row, col)
         array = Array.new
@@ -75,14 +40,6 @@ class Map
         true
     end
     
-    private
-
-    # 初期化時に、全て同じ値にするときに使う
-    def default_cell(row, col)
-        set_dead_cell(row, col)
-    end    
-    
-
     
     def print_all_status
         @cells.each_with_index do |line, row|
@@ -93,9 +50,6 @@ class Map
         end 
     end
 
-    
-    private
-    
     # 次世代にステータスを変更する
     def change_status_to_next_generation
         @cells.each_with_index do |line, row|

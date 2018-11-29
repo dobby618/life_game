@@ -1,7 +1,4 @@
 class Cell
-    # 位置情報
-    attr_accessor :index
-    
     # status 自分は生きてるの？死んでるの？
     # 0: dead
     # 1: living
@@ -17,7 +14,7 @@ class Cell
         status_of_cells_around.count(true)
     end
     
-    # 動いてるのを見るように四角を表示する
+    # 動いてるのを見たいので、四角を表示する
     def print_status
         print @display_status
     end
@@ -25,8 +22,7 @@ end
 
 # 生きてるセル
 class LivingCell < Cell
-    def initialize(index)
-        @index = index
+    def initialize
         @status = true
         @display_status = "■"
     end
@@ -40,8 +36,7 @@ end
 
 # 死んでいるセル
 class DeadCell < Cell
-    def initialize(index)
-        @index = index
+    def initialize
         @status = false
         @display_status = "□"
     end
