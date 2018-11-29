@@ -16,6 +16,7 @@ class Map
         end
     end
     
+    # 周りのセルのステータスを保持した配列を作る
     def set_status_of_cells_around(row, col)
         array = Array.new
         
@@ -28,26 +29,18 @@ class Map
         
         array
     end
-    
+
+    # セルの状態を返す
     def cells_status(row, col)
         return @cells[row][col].status if effective_range?(row, col)
         nil
     end
-    
+
+    # 列・行の値が有効か判定
     def effective_range?(row, col)
         return false if row < 0 or row >= @length
         return false if col < 0 or col >= @length
         true
-    end
-    
-    
-    def print_all_status
-        @cells.each_with_index do |line, row|
-            line.each_with_index do |_, col|
-                @cells[row][col].print_status
-            end
-            print "\n"
-        end 
     end
 
     # 次世代にステータスを変更する
@@ -63,7 +56,14 @@ class Map
         end
         set_neighboring_cells
     end
-end
-
-def Row
+    
+    # 今のステータスを■・□で表示す
+    def print_all_status
+        @cells.each_with_index do |line, row|
+            line.each_with_index do |_, col|
+                @cells[row][col].print_status
+            end
+            print "\n"
+        end 
+    end
 end
