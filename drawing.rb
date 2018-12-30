@@ -1,10 +1,10 @@
 class Drawing
     attr_accessor :cells
-    MARKERS = { alive: "■", dead: "□" }
+    MARKERS = { cui: { alive: "■", dead: "□" } }
 
     def print_cui
         cells.each do |cell|
-            print MARKERS[cell.status]
+            print MARKERS[:cui][cell.status]
             
             if cell.crlf
                 print "\n"

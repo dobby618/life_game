@@ -13,9 +13,6 @@ class Cell
     def count_adjacent_alive_cells
         @adjacent_cells.select {|cell| cell.status == :alive }.count
     end
-    
-    def next
-    end
 end
 
 # 生きてるセル
