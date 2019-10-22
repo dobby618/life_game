@@ -1,9 +1,9 @@
 require './lib/cell'
 
-class DeadCell < Cell
+class LivingCell < Cell
   # @return [True]  生存
   # @return [False] 死滅
   def alive_in_next_generation?(adjacent_alive_cell_count)
-    adjacent_alive_cell_count == 3 ? true : false
+    [2, 3].include?(adjacent_alive_cell_count) ? true : false
   end
 end
