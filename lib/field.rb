@@ -2,22 +2,22 @@ require "./lib/dead_cell"
 require "./lib/living_cell"
 
 class Field
-  # 進化
-  def evolve(cell, adjacent_alive_cell_count)
-    if cell.alive_in_next_generation?(adjacent_alive_cell_count)
-      living_cell
-    else
-      dead_cell
+  def initialize(cells)
+    @cells = cells
+  end
+
+  def evolve
+    cells.map do |cell|
+      cell.evolve(
+        count_living_cell_around(cell)
+      )
     end
   end
 
-  private
-
-  def living_cell
-    LivingCell.new
-  end
-
-  def dead_cell
-    DeadCell.new
+  # @return [Integer] 隣接する生きてるセルの数
+  def count_living_cell_around(cell)
+    cell.adjacent_cell_ids.map do |id|
+      cells[id] if cells[id].living?
+    end.compact!.count
   end
 end
