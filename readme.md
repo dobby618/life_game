@@ -1,3 +1,7 @@
+TDD（Test-Driven Development）で実装しています。
+
+# Todo List
+
 - [x] セル
   - [x] 「生」または「死」の状態を持つ
     - [x] 「生」の状態を持つ
