@@ -1,13 +1,15 @@
-require "observer"
+require 'observer'
+require './usecases/cell_factory'
 
 class Field
   include Observable
   attr_reader :width, :cells
 
-  def initialize(width, hight, cells)
+  def initialize(width, hight, cells = [])
     @width = width
     @hight = hight
     @cells = cells
+    @factory = CellFactory.instance
   end
 
   def coordinates(x, y)
