@@ -1,4 +1,4 @@
-require './scenarios/living_state'
+require './usecases/living_state'
 
 describe 'LivingState' do
   let(:current_state) { LivingState.instance }

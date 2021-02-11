@@ -1,4 +1,4 @@
-require './scenarios/cell_factory'
+require './usecases/cell_factory'
 
 describe 'CellFactory' do
   let(:factory) { CellFactory.instance }
