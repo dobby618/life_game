@@ -1,7 +1,7 @@
 require 'singleton'
-require './entities/cell'
-require './usecases/living_state'
-require './usecases/dead_state'
+require_relative '../entities/cell'
+require_relative 'living_state'
+require_relative 'dead_state'
 
 class CellFactory
   include Singleton

@@ -1,5 +1,5 @@
-require './usecases/field_factory'
-require './usecases/block_field'
+require_relative '../usecases/field_factory'
+require_relative '../usecases/block_field'
 
 describe 'FieldFactory' do
   let(:factory) { FieldFactory.instance }

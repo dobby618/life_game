@@ -1,4 +1,4 @@
-require './usecases/dead_state'
+require_relative '../usecases/dead_state'
 
 describe 'DeadState' do
   let(:current_state) { DeadState.instance }

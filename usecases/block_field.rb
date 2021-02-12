@@ -1,4 +1,4 @@
-require './entities/field'
+require_relative '../entities/field'
 
 class BlockField < Field
   def initialize

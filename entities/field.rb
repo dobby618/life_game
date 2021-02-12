@@ -1,5 +1,5 @@
 require 'observer'
-require './usecases/cell_factory'
+require_relative '../usecases/cell_factory' # usecase に依存してるよ？
 
 class Field
   include Observable

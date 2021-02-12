@@ -1,5 +1,5 @@
 require 'singleton'
-require './usecases/dead_state'
+require_relative 'dead_state'
 
 class LivingState
   include Singleton

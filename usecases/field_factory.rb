@@ -1,5 +1,5 @@
 require 'singleton'
-require './usecases/block_field'
+require_relative 'block_field'
 
 class FieldFactory
   include Singleton

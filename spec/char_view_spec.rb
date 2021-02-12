@@ -1,7 +1,5 @@
-# rspec にしていること。
-# observer interface の update を実装していること。
-require './entities/field'
-require './ui/char_view'
+require_relative '../entities/field'
+require_relative '../ui/char_view'
 
 describe 'CharView' do
   let(:view) { CharView.instance }

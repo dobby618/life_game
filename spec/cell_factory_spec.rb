@@ -1,4 +1,4 @@
-require './usecases/cell_factory'
+require_relative '../usecases/cell_factory'
 
 describe 'CellFactory' do
   let(:factory) { CellFactory.instance }
