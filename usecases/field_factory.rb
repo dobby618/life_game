@@ -1,5 +1,6 @@
 require 'singleton'
 require_relative 'block_field'
+require_relative 'beacon_field'
 
 class FieldFactory
   include Singleton

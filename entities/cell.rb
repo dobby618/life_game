@@ -16,6 +16,6 @@ class Cell
   end
 
   def step_up(number)
-    @state = @state.step_up(number)
+    Cell.new(@state.step_up(number))
   end
 end

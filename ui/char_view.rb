@@ -4,6 +4,7 @@ class CharView
   include Singleton
 
   def update(field)
+    puts "\e[H\e[2J" # terminal clear
     p 'Char View'
     field.cells.each_with_index do |cell, index|
       case cell.state
