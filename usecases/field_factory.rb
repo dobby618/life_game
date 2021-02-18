@@ -5,9 +5,6 @@ class FieldFactory
   include Singleton
 
   def create(field_name)
-    case field_name.to_sym
-    in :block
-      BlockField.new
-    end
+    eval "#{field_name.to_s.capitalize}Field.new"
   end
 end

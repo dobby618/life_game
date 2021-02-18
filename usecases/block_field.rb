@@ -5,10 +5,10 @@ class BlockField < Field
     super(4, 4)
 
     @cells = [
-      @factory.create(:dead), @factory.create(:dead),   @factory.create(:dead),   @factory.create(:dead),
-      @factory.create(:dead), @factory.create(:living), @factory.create(:living), @factory.create(:dead),
-      @factory.create(:dead), @factory.create(:living), @factory.create(:living), @factory.create(:dead),
-      @factory.create(:dead), @factory.create(:dead),   @factory.create(:dead),   @factory.create(:dead)
+      @factory.create('Dead'), @factory.create('Dead'),   @factory.create('Dead'),   @factory.create('Dead'),
+      @factory.create('Dead'), @factory.create('Living'), @factory.create('Living'), @factory.create('Dead'),
+      @factory.create('Dead'), @factory.create('Living'), @factory.create('Living'), @factory.create('Dead'),
+      @factory.create('Dead'), @factory.create('Dead'),   @factory.create('Dead'),   @factory.create('Dead')
     ]
   end
 end
