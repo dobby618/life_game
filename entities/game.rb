@@ -1,5 +1,5 @@
 require 'observer'
-require_relative 'cell_factory' # usecase に依存してるよ？
+require_relative 'cell_factory'
 require_relative 'field'
 
 class Game
@@ -7,10 +7,9 @@ class Game
 
   attr_reader :cells
 
-  def initialize(width, height, cells = [])
+  def initialize
     @field = Field.new(width, height)
-    @cells = cells
-    @factory = CellFactory.instance
+    @cells = initialize_cells(CellFactory.instance)
   end
 
   def step_up

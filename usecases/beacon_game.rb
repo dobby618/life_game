@@ -1,16 +1,22 @@
 require_relative '../entities/game'
 
 class BeaconGame < Game
-  def initialize
-    super(6, 6)
+  def height
+    6
+  end
 
-    @cells = [
-      @factory.create(:dead), @factory.create(:dead),   @factory.create(:dead),   @factory.create(:dead),   @factory.create(:dead),   @factory.create(:dead),
-      @factory.create(:dead), @factory.create(:living), @factory.create(:living), @factory.create(:dead),   @factory.create(:dead),   @factory.create(:dead),
-      @factory.create(:dead), @factory.create(:living), @factory.create(:living), @factory.create(:dead),   @factory.create(:dead),   @factory.create(:dead),
-      @factory.create(:dead), @factory.create(:dead),   @factory.create(:dead),   @factory.create(:living), @factory.create(:living), @factory.create(:dead),
-      @factory.create(:dead), @factory.create(:dead),   @factory.create(:dead),   @factory.create(:living), @factory.create(:living), @factory.create(:dead),
-      @factory.create(:dead), @factory.create(:dead),   @factory.create(:dead),   @factory.create(:dead),   @factory.create(:dead),   @factory.create(:dead),
+  def width
+    6
+  end
+
+  def initialize_cells(factory)
+    [
+      factory.create(:dead), factory.create(:dead),   factory.create(:dead),   factory.create(:dead),   factory.create(:dead),   factory.create(:dead),
+      factory.create(:dead), factory.create(:living), factory.create(:living), factory.create(:dead),   factory.create(:dead),   factory.create(:dead),
+      factory.create(:dead), factory.create(:living), factory.create(:living), factory.create(:dead),   factory.create(:dead),   factory.create(:dead),
+      factory.create(:dead), factory.create(:dead),   factory.create(:dead),   factory.create(:living), factory.create(:living), factory.create(:dead),
+      factory.create(:dead), factory.create(:dead),   factory.create(:dead),   factory.create(:living), factory.create(:living), factory.create(:dead),
+      factory.create(:dead), factory.create(:dead),   factory.create(:dead),   factory.create(:dead),   factory.create(:dead),   factory.create(:dead),
     ]
   end
 end
