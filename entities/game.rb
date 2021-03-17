@@ -10,28 +10,29 @@ class Game
   def initialize(width, height, cells = [])
     @field = Field.new(width, height)
     @cells = cells
-    @new_cells = []
     @factory = CellFactory.instance
   end
 
   def step_up
-    @cells.each_with_index do |cell, index|
-      number = count_around(@field.x_point_at(index), @field.y_point_at(index))
-      @new_cells << cell.step_up(number)
-    end
-
-    @cells = @new_cells
-    @new_cells = []
+    @cells = create_new_cells
 
     changed
     notify_observers(self)
   end
 
+  # x座標の終点かどうかを判定する
   def end_of_x?(index)
     (index % @field.width) == (@field.width - 1)
   end
 
   private
+
+  def create_new_cells
+    @cells.map.with_index do |cell, index|
+      number = count_around(@field.x_point_at(index), @field.y_point_at(index))
+      cell.step_up(number)
+    end
+  end
 
   def coordinates(x_point, y_point)
     return nil if x_point.negative? || y_point.negative?
