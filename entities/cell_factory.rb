@@ -7,6 +7,6 @@ class CellFactory
   include Singleton
 
   def create(type)
-    eval "Cell.new(#{type}State.instance)"
+    eval "Cell.new(#{type.to_s.capitalize}State.instance)"
   end
 end

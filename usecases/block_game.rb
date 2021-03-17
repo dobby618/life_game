@@ -1,6 +1,6 @@
-require_relative '../entities/field'
+require_relative '../entities/game'
 
-class BlockField < Field
+class BlockGame < Game
   def initialize
     super(4, 4)
 

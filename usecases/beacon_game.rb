@@ -1,6 +1,6 @@
-require_relative '../entities/field'
+require_relative '../entities/game'
 
-class BeaconField < Field
+class BeaconGame < Game
   def initialize
     super(6, 6)
 

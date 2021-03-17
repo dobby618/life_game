@@ -1,12 +1,13 @@
-require_relative 'usecases/field_factory'
+require_relative 'usecases/game_factory'
 require_relative 'ui/char_view'
 
-field = FieldFactory.instance.create(:beacon)
-field.add_observer(CharView.instance)
+game = GameFactory.instance.create(:beacon)
+game.add_observer(CharView.instance)
 
-field.changed
-field.notify_observers(field)
+game.changed
+game.notify_observers(game)
+
 loop do
-  field.step_up
+  game.step_up
   sleep 1
 end
