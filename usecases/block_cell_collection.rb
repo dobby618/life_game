@@ -1,6 +1,6 @@
-require_relative '../entities/game'
+require_relative '../entities/cell_collection'
 
-class BlockGame < Game
+class BlockCellCollection < CellCollection
   def height
     4
   end

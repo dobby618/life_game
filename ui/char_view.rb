@@ -15,7 +15,7 @@ class CharView
       end
 
       # この辺、ドットを2回続けて描きたくないな。
-      field.end_of_x?(index) ? print("\n") : print('')
+      field.relation.end_of_x?(index) ? print("\n") : print('')
     end
   end
 end

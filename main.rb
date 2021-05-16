@@ -1,9 +1,10 @@
 require_relative 'ui/char_view'
 require_relative 'usecases/field_factory'
 require_relative 'entities/game'
+require_relative 'entities/field'
 
-field = FieldFactory.instance.create(:beacon)
-game = Game.new(field)
+factory = FieldFactory.new(:beacon)
+game = Game.new(factory.field)
 
 game.add_observer(CharView.instance)
 game.display

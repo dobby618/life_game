@@ -4,16 +4,20 @@ class Game
   include Observable
   CONDITION_STATUS = :living
 
-  attr_reader :field
-
   def initialize(field)
     @field = field
+    @cells = field.cells
+  end
+
+  def cells=(cells)
+    @field.cells = cells
+    @cells = cells
   end
 
   def step_up
-    field.cells = 
-      field.cells.map.with_index do |cell, index|
-        around_cells = field.arround_cells(index)
+    self.cells = 
+      @cells.map.with_index do |cell, index|
+        around_cells = @field.relation.arround_cells(@cells, index)
         cell.step_up(count_living_cells(around_cells))
       end
     
@@ -22,7 +26,7 @@ class Game
 
   def display
     changed
-    notify_observers(field)
+    notify_observers(@field)
   end
 
   private
