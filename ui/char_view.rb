@@ -3,10 +3,10 @@ require 'singleton'
 class CharView
   include Singleton
 
-  def update(game)
+  def update(field)
     puts "\e[H\e[2J" # terminal clear
     p 'Char View'
-    game.cells.each_with_index do |cell, index|
+    field.cells.each_with_index do |cell, index|
       case cell.state
       when :living
         print '■'
@@ -15,7 +15,7 @@ class CharView
       end
 
       # この辺、ドットを2回続けて描きたくないな。
-      game.end_of_x?(index) ? print("\n") : print('')
+      field.end_of_x?(index) ? print("\n") : print('')
     end
   end
 end
